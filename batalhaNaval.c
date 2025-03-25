@@ -9,11 +9,14 @@ int main() {
     int matriz[10][10] = {0};
     int navio[3] = {3};
     int navio1[3] = {3};
+    int navio2[3] = {3};
+    int navio3[3] = {3};
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 10; j++)
         {   
+            //Representação dos dois primeiros navios
             if (j == 1 && (i == 0 || i == 1 || i == 2)) 
             {
                 matriz[i][j] = navio[0];
@@ -21,6 +24,21 @@ int main() {
             else if (i == 6 && (j == 6 || j == 7 || j == 8 ))
             {
                 matriz[i][j] = navio1[0];
+            }
+            //Representação dos navios em diagonal
+            else if ((i == 0 && j == 6) || (i == 1 && j == 5) || (i == 2 && j == 4))
+            {
+                if (matriz[0][6] == 0 || matriz[1][5] == 0|| matriz[2][4] == 0)
+                {
+                    matriz[i][j] = navio2[0];
+                }
+            }
+            else if ((i == 9 && j == 2) || (i == 8 && j == 3)|| (i == 7 && j == 4))
+            {
+                if (matriz[9][2] == 0 || matriz[8][3] == 0|| matriz[7][4] == 0)
+                {
+                    matriz[i][j] = navio3[0];
+                }
             }
             printf("%d ", matriz[i][j]);
         }
