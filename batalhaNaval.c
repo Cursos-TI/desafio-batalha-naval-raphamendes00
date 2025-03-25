@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <locale.h>
 
 // Desafio Batalha Naval - MateCheck
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
+    
+    setlocale(LC_ALL, "pt_BR.UTF-8"); // Permite usar acentos e caracteres como 'ç'
+
     // Nível Novato - Posicionamento dos Navios
     int matriz[10][10] = {0};
     int navio[3] = {3};
@@ -12,6 +16,8 @@ int main() {
     int navio2[3] = {3};
     int navio3[3] = {3};
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
+    printf("Exibindo navios em suas posições no tabuleiro\n");
+    printf("=============================================\n");
     for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 10; j++)
@@ -32,12 +38,20 @@ int main() {
                 {
                     matriz[i][j] = navio2[0];
                 }
+                else
+                {
+                    printf("Posições já selecionadas!");
+                }
             }
             else if ((i == 9 && j == 2) || (i == 8 && j == 3)|| (i == 7 && j == 4))
             {
                 if (matriz[9][2] == 0 || matriz[8][3] == 0|| matriz[7][4] == 0)
                 {
                     matriz[i][j] = navio3[0];
+                }
+                else
+                {
+                    printf("Posições já selecionadas!");
                 }
             }
             printf("%d ", matriz[i][j]);
